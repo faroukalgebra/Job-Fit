@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Job-Fit — Tailor your CV. Land interviews.</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-sans bg-gray-50 text-gray-900">
+
+  <!-- Header -->
+  <header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+        <a href="/" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold">CV</div>
+          <div>
+            <div class="text-xl font-extrabold">Job-Fit</div>
+            <div class="text-sm text-gray-500 -mt-1">Tailor your resume. Land interviews.</div>
+          </div>
+        </a>
+      </div>
+
+      <nav class="flex items-center gap-4">
+        <a href="#how" class="text-sm hover:underline">How it works</a>
+        <a href="#features" class="text-sm hover:underline">Features</a>
+        <button id="loginBtn" class="px-4 py-2 rounded-md border border-blue-600 text-blue-600 hover:bg-blue-50 text-sm">Log in</button>
+        <a href="#upload-section" class="ml-2 inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700 text-sm">Get started</a>
+      </nav>
+    </div>
+    <!-- Catchy banner under header -->
+    <div class="bg-gradient-to-r from-blue-50 to-white border-t border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-6 py-3 text-sm text-gray-700 flex items-center justify-between">
+        <div>One-click CV tailoring for any job posting — preview in minutes, download after subscription.</div>
+        <div class="text-xs text-gray-500">€2.99/month • Free 7-day trial</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main>
+    <section class="max-w-7xl mx-auto px-6 py-16 grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <h1 class="text-4xl font-extrabold">Make every job application count.</h1>
+        <p class="mt-4 text-lg text-gray-600 max-w-xl">Upload your CV, paste the job link, and get an ATS-friendly, recruiter-focused resume tailored to that exact posting.</p>
+
+        <div class="mt-6 flex gap-3">
+          <a href="#upload-section" class="px-5 py-3 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700">Try it — it's free</a>
+          <a href="#how" class="px-5 py-3 border rounded-md text-gray-700 hover:bg-gray-50">See how it works</a>
+        </div>
+
+        <ul class="mt-8 space-y-3 text-gray-600">
+          <li>• Rewrites experience to show impact & results</li>
+          <li>• 3-line professional summary that hooks recruiters</li>
+          <li>• ATS optimization with job-specific keywords</li>
+        </ul>
+      </div>
+
+      <!-- Upload card -->
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h3 class="text-lg font-medium">Upload & Tailor</h3>
+        <p class="text-sm text-gray-500 mt-1">Upload your CV, paste the job link and get an optimized preview.</p>
+
+        <form id="cvForm" class="mt-6 space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Upload CV</label>
+            <input id="file-upload" name="file" type="file" accept=".pdf,.doc,.docx,.txt" class="mt-1 block w-full text-sm" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Job posting URL</label>
+            <input id="job-url" type="url" placeholder="https://example.com/job/123" class="mt-1 block w-full p-3 border rounded-md text-sm" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Email</label>
+            <input id="email" type="email" placeholder="you@example.com" class="mt-1 block w-full p-3 border rounded-md text-sm" />
+          </div>
+
+          <div>
+            <button id="optimizeBtn" type="button" class="w-full px-4 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700">Optimize my CV (preview)</button>
+          </div>
+        </form>
+
+        <p class="text-xs text-gray-400 mt-3">Preview is free. You will be asked to subscribe when you download.</p>
+      </div>
+    </section>
+
+    <!-- How -->
+    <section id="how" class="max-w-7xl mx-auto px-6 py-12">
+      <h2 class="text-2xl font-bold">How it works</h2>
+      <div class="mt-6 grid sm:grid-cols-3 gap-6">
+        <div class="p-4 bg-white rounded-lg shadow">
+          <strong class="block">1. Upload</strong>
+          <p class="text-sm text-gray-600 mt-2">Send your CV and the job link.</p>
+        </div>
+        <div class="p-4 bg-white rounded-lg shadow">
+          <strong class="block">2. Optimize</strong>
+          <p class="text-sm text-gray-600 mt-2">We rewrite experience, summarize, and add job keywords.</p>
+        </div>
+        <div class="p-4 bg-white rounded-lg shadow">
+          <strong class="block">3. Download</strong>
+          <p class="text-sm text-gray-600 mt-2">Subscribe (€2.99/month). Download as PDF/DOCX.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upload / preview / download area -->
+    <section id="upload-section" class="max-w-5xl mx-auto px-6 py-12">
+      <div id="previewCard" class="hidden bg-white p-6 rounded-lg shadow">
+        <h3 class="font-bold text-lg">Optimized preview</h3>
+        <div id="previewContent" class="mt-4 text-sm text-gray-700">
+          <!-- populated by script -->
+          <p class="text-gray-400">Preview will appear here after optimization.</p>
+        </div>
+
+        <div class="mt-6 flex gap-3">
+          <button id="downloadBtn" class="px-4 py-2 bg-green-600 text-white rounded-md">Download</button>
+          <button id="editBtn" class="px-4 py-2 border rounded-md">Edit further</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Login Modal (hidden by default) -->
+  <div id="loginModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 p-4">
+    <div class="bg-white rounded-lg max-w-md w-full p-6">
+      <div class="flex items-center justify-between">
+        <h3 class="text-lg font-medium">Log in to CV Optimiser</h3>
+        <button id="closeLogin" class="text-gray-500">✕</button>
+      </div>
+
+      <div class="mt-4 space-y-4">
+        <button id="facebookLogin" class="w-full px-4 py-2 bg-blue-800 text-white rounded-md">Continue with Facebook</button>
+        <div class="flex items-center gap-3 mt-2">
+          <hr class="flex-1">
+          <span class="text-xs text-gray-400">or</span>
+          <hr class="flex-1">
+        </div>
+        <input id="loginEmail" type="email" placeholder="you@example.com" class="w-full p-3 border rounded-md text-sm" />
+        <input id="loginPassword" type="password" placeholder="Password" class="w-full p-3 border rounded-md text-sm" />
+        <div class="flex gap-2">
+          <button id="emailLoginBtn" class="flex-1 px-4 py-2 bg-blue-600 text-white rounded-md">Log in</button>
+          <button id="signupBtn" class="flex-1 px-4 py-2 border rounded-md">Sign up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="navbar.js"></script>
+  <script src="script.js"></script>
+  <script>feather.replace()</script>
+</body>
+</html>
